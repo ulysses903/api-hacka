@@ -1,0 +1,35 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://usuario:senha@db:27017/restaurant
+      - RABBIT_HOST=af4b45659baf047e49724279ab7d29eb-1909975876.us-east-1.elb.amazonaws.com
+      - RABBIT_USER=fiap
+      - RABBIT_PASSWORD=GpP36_Fiap@2024!
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+  rabbitmq:
+    image: rabbitmq:3.10-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./dados:/var/lib/rabbitmq/
+    environment:
+      - RABBITMQ_DEFAULT_USER=ulysses
+      - RABBITMQ_DEFAULT_PASS=senha123
+
+volumes:
+  mongodb-data:

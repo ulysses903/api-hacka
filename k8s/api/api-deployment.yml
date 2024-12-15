@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-pod
+  template:
+    metadata:
+      name: api-pod
+      labels:
+        app: api-pod
+    spec:
+      containers:
+        - name: api-restaurant-container
+          image: samuelmolendolff/api-restaurant:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: api-configmap
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /restaurant/actuator/health/liveness
+            periodSeconds: 5
+            failureThreshold: 3
+            initialDelaySeconds: 15
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /restaurant/actuator/health/readiness
+            periodSeconds: 5
+            failureThreshold: 3
+            initialDelaySeconds: 15
+          resources:
+            requests:
+              cpu: 10m

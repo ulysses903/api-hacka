@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-stateful
+spec:
+  replicas: 3
+  serviceName: svc-db
+  selector:
+    matchLabels:
+      app: db-pod
+  template:
+    metadata:
+      name: db-pod
+      labels:
+        app: db-pod
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 27017
+          envFrom:
+            - configMapRef:
+                name: db-configmap
+      volumes:
+        - name: pg-data
+          persistentVolumeClaim:
+            claimName: db-volume-claim

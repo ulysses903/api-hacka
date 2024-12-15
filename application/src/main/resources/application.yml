@@ -1,0 +1,35 @@
+spring:
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/restaurant}
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: 5672
+    username: ${RABBIT_USER:ulysses}
+    password: ${RABBIT_PASSWORD:senha123}
+springdoc:
+  api-docs:
+    enabled: 'true'
+  swagger-ui:
+    path: /swagger-ui.html
+server:
+  servlet:
+    context-path: /payment
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+    beans:
+      cache:
+        time-to-live: 10s
+  health:
+    defaults:
+      enabled: false
+    db:
+      enabled: true
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true

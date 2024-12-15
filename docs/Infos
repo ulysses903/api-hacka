@@ -1,0 +1,10 @@
+
+Para visualizar o arquivo drawio é necessário baixar o plugin/extensão
+
+Esta extensão integra diagrams.net (anteriormente conhecido como draw.io) diretamente no IntelliJ e outros IDEs da JetBrains baseados nele, como PyCharm, RubyMine e WebStorm.
+
+Passo a passo:
+    No intellij IDEA > File > Settings > Plugins > pesquisar por > diagrams.net
+
+Mais detalhes: https://plugins.jetbrains.com/plugin/15635-diagrams-net-integration
+

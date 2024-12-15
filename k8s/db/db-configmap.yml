@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-configmap
+  labels:
+    app: db-pod
+data:
+  POSTGRES_DB: "restaurant"
+  POSTGRES_USER: "postgres"
+  POSTGRES_PASSWORD: "postgres"
