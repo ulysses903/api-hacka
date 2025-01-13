@@ -14,31 +14,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    public static final String ORDER_QUEUE_NAME = "order_videoprocessing_direct_queue";
-    public static final String videoprocessing_QUEUE_NAME = "videoprocessing_direct_queue";
-    public static final String videoprocessing_EXCHANGE_NAME = "videoprocessing_direct_exchange";
-    public static final String videoprocessing_KEY_NAME = "videoprocessing_direct_key";
+    public static final String QUEUE_NAME = "video-processing-queue";
+    public static final String EXCHANGE_NAME = "video-processing-exchange";
+    public static final String KEY_NAME = "video.processing.routing.key";
 
     @Bean
-    public Queue videoprocessingQueue() {
-        return new Queue(videoprocessing_QUEUE_NAME);
+    public Queue queue() {
+        return new Queue(QUEUE_NAME, true);
     }
 
     @Bean
     public DirectExchange exchange() {
-        return new DirectExchange(videoprocessing_EXCHANGE_NAME);
+        return new DirectExchange(EXCHANGE_NAME);
     }
 
     @Bean
-    public Binding binding(Queue videoprocessingQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(videoprocessingQueue).to(exchange).with(videoprocessing_KEY_NAME);
+    public Binding binding(Queue queue, DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("video.processing.routing.key");
     }
-
-    @Bean
-    public Queue orderQueue() {
-        return new Queue(ORDER_QUEUE_NAME);
-    }
-
     @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
