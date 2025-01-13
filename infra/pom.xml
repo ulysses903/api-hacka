@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>payment-module-parent</artifactId>
-    <groupId>br.com.payment</groupId>
+    <artifactId>videoprocessing-module-parent</artifactId>
+    <groupId>br.com.videoprocessing</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
@@ -20,7 +20,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>br.com.payment</groupId>
+      <groupId>br.com.videoprocessing</groupId>
       <artifactId>domain</artifactId>
     </dependency>
     <dependency>
@@ -94,8 +94,8 @@
         <version>0.8.8</version>
         <configuration>
           <excludes>
-            <exclude>**/payment/infra/feign/presenter/</exclude>
-            <exclude>**/payment/infra/mapper/</exclude>
+            <exclude>**/videoprocessing/infra/feign/presenter/</exclude>
+            <exclude>**/videoprocessing/infra/mapper/</exclude>
           </excludes>
         </configuration>
         <executions>

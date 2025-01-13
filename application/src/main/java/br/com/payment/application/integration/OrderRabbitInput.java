@@ -1,4 +1,4 @@
-package br.com.payment.application.integration;
+package br.com.videoprocessing.application.integration;
 
 import java.math.BigDecimal;
 

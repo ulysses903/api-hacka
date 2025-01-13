@@ -1,11 +1,11 @@
-CREATE TABLE IF NOT EXISTS payment(
+CREATE TABLE IF NOT EXISTS videoprocessing(
 
     id SERIAL PRIMARY KEY,
     order_id SERIAL not null,
     client varchar(20),
     status varchar(20) not null,
     amount decimal not null,
-    payment_at timestamp(6)
+    videoprocessing_at timestamp(6)
 );
 
-ALTER TABLE payment ADD CONSTRAINT fk_payment_order_id FOREIGN KEY (order_id) REFERENCES ordered(id);
+ALTER TABLE videoprocessing ADD CONSTRAINT fk_videoprocessing_order_id FOREIGN KEY (order_id) REFERENCES ordered(id);

@@ -1,4 +1,4 @@
-package br.com.payment.application;
+package br.com.videoprocessing.application;
 
 import org.junit.jupiter.api.Test;
 

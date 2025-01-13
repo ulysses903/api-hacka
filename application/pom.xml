@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>payment-module-parent</artifactId>
-    <groupId>br.com.payment</groupId>
+    <artifactId>videoprocessing-module-parent</artifactId>
+    <groupId>br.com.videoprocessing</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
@@ -16,16 +16,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <start-class>br.com.payment.App</start-class>
+    <start-class>br.com.videoprocessing.App</start-class>
     <spring-cloud.version>2021.0.0</spring-cloud.version>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>br.com.payment</groupId>
+      <groupId>br.com.videoprocessing</groupId>
       <artifactId>domain</artifactId></dependency>
     <dependency>
-      <groupId>br.com.payment</groupId>
+      <groupId>br.com.videoprocessing</groupId>
       <artifactId>infra</artifactId>
     </dependency>
     <dependency>
@@ -109,7 +109,7 @@
           <excludes>
             <exclude>**/inout/input/**</exclude>
             <exclude>**/inout/mapper/**</exclude>
-            <exclude>**/br/com/payment/App.class</exclude>
+            <exclude>**/br/com/videoprocessing/App.class</exclude>
           </excludes>
         </configuration>
         <executions>

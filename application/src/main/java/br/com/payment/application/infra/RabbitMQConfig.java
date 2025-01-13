@@ -1,4 +1,4 @@
-package br.com.payment.application.infra;
+package br.com.videoprocessing.application.infra;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -14,24 +14,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    public static final String ORDER_QUEUE_NAME = "order_payment_direct_queue";
-    public static final String PAYMENT_QUEUE_NAME = "payment_direct_queue";
-    public static final String PAYMENT_EXCHANGE_NAME = "payment_direct_exchange";
-    public static final String PAYMENT_KEY_NAME = "payment_direct_key";
+    public static final String ORDER_QUEUE_NAME = "order_videoprocessing_direct_queue";
+    public static final String videoprocessing_QUEUE_NAME = "videoprocessing_direct_queue";
+    public static final String videoprocessing_EXCHANGE_NAME = "videoprocessing_direct_exchange";
+    public static final String videoprocessing_KEY_NAME = "videoprocessing_direct_key";
 
     @Bean
-    public Queue paymentQueue() {
-        return new Queue(PAYMENT_QUEUE_NAME);
+    public Queue videoprocessingQueue() {
+        return new Queue(videoprocessing_QUEUE_NAME);
     }
 
     @Bean
     public DirectExchange exchange() {
-        return new DirectExchange(PAYMENT_EXCHANGE_NAME);
+        return new DirectExchange(videoprocessing_EXCHANGE_NAME);
     }
 
     @Bean
-    public Binding binding(Queue paymentQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(paymentQueue).to(exchange).with(PAYMENT_KEY_NAME);
+    public Binding binding(Queue videoprocessingQueue, DirectExchange exchange) {
+        return BindingBuilder.bind(videoprocessingQueue).to(exchange).with(videoprocessing_KEY_NAME);
     }
 
     @Bean

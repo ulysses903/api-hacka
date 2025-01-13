@@ -1,6 +1,6 @@
-package br.com.payment.domain.core.exception;
+package br.com.videoprocessing.domain.core.exception;
 
-import br.com.payment.domain.core.domain.exception.CoreExceptionNegocial;
+import br.com.videoprocessing.domain.core.domain.exception.CoreExceptionNegocial;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

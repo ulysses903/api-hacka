@@ -8,11 +8,11 @@
         <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-  <groupId>br.com.payment</groupId>
-  <artifactId>payment-module-parent</artifactId>
+  <groupId>br.com.videoprocessing</groupId>
+  <artifactId>videoprocessing-module-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>payment-module-parent</name>
+  <name>videoprocessing-module-parent</name>
 
   <url>http://www.restaurantenomeempresa.com.br</url>
 
@@ -57,17 +57,17 @@
   <dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>br.com.payment</groupId>
+            <groupId>br.com.videoprocessing</groupId>
             <artifactId>domain</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>br.com.payment</groupId>
+            <groupId>br.com.videoprocessing</groupId>
             <artifactId>infra</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>br.com.payment</groupId>
+            <groupId>br.com.videoprocessing</groupId>
             <artifactId>application</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

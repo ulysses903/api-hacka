@@ -1,10 +1,10 @@
-package br.com.payment.application.controllers;
+package br.com.videoprocessing.application.controllers;
 
-import br.com.payment.application.service.CreateVideoProcessingDTO;
-import br.com.payment.application.service.VideoProcessingApplicationService;
-import br.com.payment.application.service.VideoProcessingDTO;
-import br.com.payment.domain.core.domain.entities.VideoProcessing;
-import br.com.payment.infra.repository.VideoProcessingRepository;
+import br.com.videoprocessing.application.service.CreateVideoProcessingDTO;
+import br.com.videoprocessing.application.service.VideoProcessingApplicationService;
+import br.com.videoprocessing.application.service.VideoProcessingDTO;
+import br.com.videoprocessing.domain.core.domain.entities.VideoProcessing;
+import br.com.videoprocessing.infra.repository.VideoProcessingRepository;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

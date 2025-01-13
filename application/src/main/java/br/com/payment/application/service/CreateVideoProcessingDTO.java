@@ -1,4 +1,4 @@
-package br.com.payment.application.service;
+package br.com.videoprocessing.application.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

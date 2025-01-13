@@ -1,4 +1,4 @@
-package br.com.payment.domain.core.domain.exception;
+package br.com.videoprocessing.domain.core.domain.exception;
 
 import java.io.Serializable;
 

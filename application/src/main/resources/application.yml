@@ -14,7 +14,7 @@ springdoc:
     path: /swagger-ui.html
 server:
   servlet:
-    context-path: /payment
+    context-path: /videoprocessing
 management:
   endpoint:
     health:

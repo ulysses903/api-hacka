@@ -1,4 +1,4 @@
-package br.com.payment.domain.core.domain.entities;
+package br.com.videoprocessing.domain.core.domain.entities;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;

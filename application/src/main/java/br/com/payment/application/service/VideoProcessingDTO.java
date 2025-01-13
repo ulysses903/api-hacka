@@ -1,6 +1,6 @@
-package br.com.payment.application.service;
+package br.com.videoprocessing.application.service;
 
-import br.com.payment.domain.core.domain.entities.ProcessingStatus;
+import br.com.videoprocessing.domain.core.domain.entities.ProcessingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
