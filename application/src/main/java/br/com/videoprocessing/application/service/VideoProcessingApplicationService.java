@@ -2,13 +2,14 @@ package br.com.videoprocessing.application.service;
 
 import br.com.videoprocessing.application.infra.RabbitMQConfig;
 import br.com.videoprocessing.domain.core.domain.entities.VideoProcessing;
+import br.com.videoprocessing.infra.repository.MinioRepository;
 import br.com.videoprocessing.infra.repository.VideoProcessingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
+import java.io.InputStream;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +17,7 @@ public class VideoProcessingApplicationService {
 
     private final VideoProcessingRepository videoProcessingRepository;
     private final RabbitTemplate rabbitTemplate;
+    private final MinioRepository minioRepository;
 
     public String createVideoProcessing(CreateVideoProcessingDTO createVideoProcessingDTO) {
         VideoProcessing videoProcessing = videoProcessingRepository.save(new VideoProcessing(createVideoProcessingDTO.getUsuarioId(), createVideoProcessingDTO.getUrlDoVideo()));
@@ -37,7 +39,7 @@ public class VideoProcessingApplicationService {
     //talvez isolar em um serviço a parte
     public String proccesVideo(String videoProcessingId) {
         VideoProcessing videoProcessing = videoProcessingRepository.findById(videoProcessingId).orElseThrow(() -> new RuntimeException("Invalid id to procces video."));
-        //consultar no minIO o video pela URL
+        InputStream inputStream = minioRepository.downloadVideo(videoProcessing.getUrlDoVideo());
         //processar o video
         //zipar imagens
         //enviar zip para o minIO

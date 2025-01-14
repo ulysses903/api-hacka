@@ -31,5 +31,18 @@ services:
       - RABBITMQ_DEFAULT_USER=ulysses
       - RABBITMQ_DEFAULT_PASS=senha123
 
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9090:9090"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: admin123
+    volumes:
+      - ./data:/data
+    command: server /data --console-address ":9090"
+
 volumes:
   mongodb-data:
