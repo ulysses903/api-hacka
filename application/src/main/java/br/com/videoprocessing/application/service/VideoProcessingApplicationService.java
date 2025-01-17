@@ -38,12 +38,18 @@ public class VideoProcessingApplicationService {
 
     //talvez isolar em um serviço a parte
     public String proccesVideo(String videoProcessingId) {
-        VideoProcessing videoProcessing = videoProcessingRepository.findById(videoProcessingId).orElseThrow(() -> new RuntimeException("Invalid id to procces video."));
-        InputStream inputStream = minioRepository.downloadVideo(videoProcessing.getUrlDoVideo());
-        //processar o video
-        //zipar imagens
-        //enviar zip para o minIO
-        //envolver em um try catch, em caso de erro chamar notificador de email
-        return videoProcessingId;
+        try {
+            VideoProcessing videoProcessing = videoProcessingRepository.findById(videoProcessingId).orElseThrow(() -> new RuntimeException("Invalid id to procces video."));
+            InputStream inputStream = minioRepository.downloadVideo(videoProcessing.getUrlDoVideo());
+            //processar o video
+            //zipar imagens
+            //enviar zip para o minIO
+            //envolver em um try catch, em caso de erro chamar notificador de email
+            return videoProcessingId;
+        } catch (Exception e) {
+            rabbitTemplate.convertAndSend(RabbitMQConfig.EMAIL_EXCHANGE_NAME, RabbitMQConfig.EMAIL_KEY_NAME,
+                    new EmailRabbitDTO("ulysses903@gmail.com", "ERROR", "Deu ruim!!!"));
+            throw new RuntimeException(e);
+        }
     }
 }
