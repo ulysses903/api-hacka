@@ -44,7 +44,8 @@ public class VideoProcessingApplicationService {
             //processar o video
             //zipar imagens
             //enviar zip para o minIO
-            //envolver em um try catch, em caso de erro chamar notificador de email
+            rabbitTemplate.convertAndSend(RabbitMQConfig.EMAIL_EXCHANGE_NAME, RabbitMQConfig.EMAIL_KEY_NAME,
+                    new EmailRabbitDTO("ulysses903@gmail.com", "SUCCESS", "Deu bom!!!"));
             return videoProcessingId;
         } catch (Exception e) {
             rabbitTemplate.convertAndSend(RabbitMQConfig.EMAIL_EXCHANGE_NAME, RabbitMQConfig.EMAIL_KEY_NAME,
